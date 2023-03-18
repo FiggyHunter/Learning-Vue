@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="mb-16">
     <h1 class="mb-14 text-8xl font-bold tracking-tighter">
       <span :class="actionClasses">{{ action }}</span>
       <br />
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import nextElementInList from '@/utils/nextElementInList';
 export default {
   name: 'TheHeadline',
   data() {
@@ -36,8 +37,9 @@ export default {
   methods: {
     changeTitle() {
       this.interval = setInterval(() => {
+        this.$emit('itHappened');
         const actions = ['Build', 'Create', 'Design', 'Code'];
-        this.action = actions[actions.indexOf(this.action) + 1] || 'Build';
+        this.action = nextElementInList(actions, this.action);
       }, 3000);
     },
   },

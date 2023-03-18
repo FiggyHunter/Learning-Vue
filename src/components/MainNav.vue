@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import ActionButton from './ActionButton.vue';
+import ActionButton from './shared/ActionButton.vue';
 import ProfileImage from './ProfileImage.vue';
 import TheSubnav from './TheSubnav.vue';
 
