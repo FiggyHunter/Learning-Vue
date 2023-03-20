@@ -4,7 +4,7 @@
     <div class="flex h-full flex-1 flex-nowrap text-base font-light">
       <div class="relative flex h-full flex-1 items-center pr-3">
         <label class="absolute left-0 -top-10">Role</label>
-        <TextInput placeholder="Software Engineer" />
+        <TextInput v-model="role" placeholder="Software Engineer" />
       </div>
 
       <span
@@ -14,7 +14,7 @@
       </span>
       <div class="relative flex h-full flex-1 items-center pr-3">
         <label class="absolute left-0 -top-10">Where?</label>
-        <TextInput class="ml-3" placeholder="Los Angeles" />
+        <TextInput v-model="location" class="ml-3" placeholder="Los Angeles" />
       </div>
     </div>
     <ActionButton text="Search" type="secondary" class="rounded-r-3xl" />
@@ -38,12 +38,12 @@ export default {
     };
   },
   methods: {
-    updateRole(event) {
-      this.role = event.target.value;
+    updateRole(payload) {
+      this.role = payload;
     },
 
-    updateLocation(event) {
-      this.location = event.target.value;
+    updateLocation(payload) {
+      this.location = payload;
     },
   },
 };
