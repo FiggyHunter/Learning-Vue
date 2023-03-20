@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/vue';
 import { describe, expect } from 'vitest';
 import { nextTick } from 'vue';
 
-import TheHeadline from '@/components/TheHeadline.vue';
+import TheHeadline from '@/components/JobSearch/TheHeadline.vue';
 
 // describe('dfkjsfkj', () => {
 //   // describe('Vitest playground', () => {

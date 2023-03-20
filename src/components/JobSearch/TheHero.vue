@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import ImageCarousel from './ImageCarousel.vue';
-import JobSearchForm from '@/components/JobSearchForm.vue';
-import TheHeadline from '@/components/TheHeadline.vue';
+import ImageCarousel from '../ImageCarousel.vue';
+import JobSearchForm from '@/components/JobSearch/JobSearchForm.vue';
+import TheHeadline from '@/components/JobSearch/TheHeadline.vue';
 export default {
   name: 'TheHero',
   components: { TheHeadline, JobSearchForm, ImageCarousel },

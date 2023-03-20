@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import ActionButton from './shared/ActionButton.vue';
-import ProfileImage from './ProfileImage.vue';
-import TheSubnav from './TheSubnav.vue';
+import ActionButton from '../shared/ActionButton.vue';
+import ProfileImage from '@/components/navigation/ProfileImage.vue';
+import TheSubnav from '@/components/navigation/TheSubnav.vue';
 
 export default {
   name: 'MainNav',
