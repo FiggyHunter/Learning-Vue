@@ -7,7 +7,7 @@
           <TheHeadline @itHappened="updateImageLink" /> <JobSearchForm />
         </div>
         <div class="col-span-5 col-start-7 ml-8 grid justify-center">
-          <ImageCarousel ref="imageCarousel" :imageLink="imageLink" />
+          <ImageCarousel ref="imageCarousel" />
         </div>
         <div class="col-span-1 col-start-12"></div>
       </div>

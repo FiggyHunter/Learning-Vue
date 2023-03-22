@@ -41,14 +41,6 @@ export default {
     };
   },
   methods: {
-    updateRole(payload) {
-      this.role = payload;
-    },
-
-    updateLocation(payload) {
-      this.location = payload;
-    },
-
     searchForJobs() {
       this.$router.push({
         name: 'JobResults',
