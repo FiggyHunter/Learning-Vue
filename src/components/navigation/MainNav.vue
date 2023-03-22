@@ -1,13 +1,17 @@
 <template>
   <header :class="['w-full', 'text-sm', headerHeightClass]">
-    <div class="fixed top-0 left-0 h-16 w-full bg-white">
+    <div class="fixed top-0 left-0 z-50 h-16 w-full bg-white">
       <div class="mx-auto flex h-full flex-nowrap border-b border-solid border-brand-gray-1 px-8">
-        <a :href="url" class="text max-w-l flex h-full w-1/12 items-center">{{ company }}</a>
+        <router-link class="flex h-full w-40 items-center text-xl" to="/">{{
+          company
+        }}</router-link>
 
         <nav class="ml-12 flex h-full w-full flex-nowrap justify-between">
           <ul class="flex h-full w-full list-none">
-            <li v-for="menuItem in menuItems" :key="menuItem" class="ml-9 h-full first:ml-0">
-              <a href="" class="flex h-full items-center py-2.5">{{ menuItem }}</a>
+            <li v-for="menuItem in menuItems" :key="menuItem.text" class="ml-9 h-full first:ml-0">
+              <router-link :to="menuItem.url" class="flex h-full items-center py-2.5">
+                {{ menuItem.text }}
+              </router-link>
             </li>
           </ul>
           <profile-image v-if="isLoggedIn" />
@@ -29,8 +33,14 @@ export default {
   data() {
     return {
       company: 'Leo Careers',
-      url: 'https://careers.google.com',
-      menuItems: ['Teams', 'Locations', 'Life at Leo Corp', 'How we hire', 'Students', 'Jobs'],
+      menuItems: [
+        { text: 'Teams', url: '/' },
+        { text: 'Locations', url: '/' },
+        { text: 'Life at Leo Corp', url: '/' },
+        { text: 'How we hire', url: '/' },
+        { text: 'Students', url: '/' },
+        { text: 'Jobs', url: '/jobs/results' },
+      ],
       isLoggedIn: false,
     };
   },
