@@ -14,8 +14,8 @@
               </router-link>
             </li>
           </ul>
-          <profile-image v-if="isLoggedIn" />
-          <action-button v-else text="Sign In" @click="logInUser" class="w-1/12" type="primary" />
+          <profile-image v-if="disLoggedIn" />
+          <action-button v-else text="Sign In" @click="loginUser" class="w-1/12" type="primary" />
         </nav>
       </div>
       <the-subnav v-if="isLoggedIn" />
@@ -24,6 +24,9 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'pinia';
+import { useUserStore } from '../../stores/user';
+
 import ActionButton from '../shared/ActionButton.vue';
 import ProfileImage from '@/components/navigation/ProfileImage.vue';
 import TheSubnav from '@/components/navigation/TheSubnav.vue';
@@ -41,7 +44,6 @@ export default {
         { text: 'Students', url: '/' },
         { text: 'Jobs', url: '/jobs/results' },
       ],
-      isLoggedIn: false,
     };
   },
   components: {
@@ -49,18 +51,17 @@ export default {
     ProfileImage,
     TheSubnav,
   },
-  methods: {
-    logInUser() {
-      this.isLoggedIn = true;
-    },
-  },
   computed: {
+    ...mapState(useUserStore, ['isLoggedIn']), // (id: user) + Store = userStore
     headerHeightClass() {
       return {
         'h-16': !this.isLoggedIn,
         'h-32': this.isLoggedIn,
       };
     },
+  },
+  methods: {
+    ...mapActions(useUserStore, ['loginUser']),
   },
 };
 </script>

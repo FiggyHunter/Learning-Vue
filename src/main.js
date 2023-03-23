@@ -12,4 +12,4 @@ const pinia = createPinia(); // our store, needed to register with the app
 
 library.add(faSearch);
 
-createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app'); // mounter
+createApp(App).use(pinia).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app'); // mounter
