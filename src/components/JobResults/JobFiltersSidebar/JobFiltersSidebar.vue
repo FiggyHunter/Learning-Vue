@@ -1,11 +1,33 @@
 <template>
-  <div class="flex w-96 flex-col border-r border-solid border-brand-gray-1 bg-white p-4">
-    Job Filters Sidebar
-  </div>
+  <section class="w-1/4 pb-5">
+    <div class="flex flex-row justify-between">
+      <h3 class="my-4 mx-5 text-base font-semibold">What do you want to do?</h3>
+      <div class="flex items-center text-sm">
+        <ActionButton text="Clear Filters" type="secondary" />
+      </div>
+    </div>
+
+    <CollapsibleAccordion header="Job Types"> Placeholder for now. </CollapsibleAccordion>
+
+    <CollapsibleAccordion header="Organization">
+      <!--Slots specific -->
+      <JobFiltersSidebarOrganizations />
+    </CollapsibleAccordion>
+  </section>
 </template>
 
 <script>
+import ActionButton from '../../shared/ActionButton.vue';
+import CollapsibleAccordion from '../../shared/CollapsibleAccordion.vue';
+import JobFiltersSidebarOrganizations from './JobFiltersSidebarOrganizations.vue';
+
 export default {
   name: 'JobFiltersSidebar',
+
+  components: {
+    ActionButton,
+    CollapsibleAccordion,
+    JobFiltersSidebarOrganizations,
+  },
 };
 </script>
