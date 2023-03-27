@@ -74,7 +74,11 @@ export default {
 </script>
 
 <style scoped>
-.router-link-exact-active {
+.router-link-active {
   border-bottom: solid 3px #1967d2;
+}
+
+.home-active {
+  border-bottom: none;
 }
 </style>

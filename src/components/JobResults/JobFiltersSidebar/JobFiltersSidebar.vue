@@ -1,18 +1,15 @@
 <template>
   <section class="w-1/4 pb-5">
-    <div class="flex flex-row justify-between">
-      <h3 class="my-4 mx-5 text-base font-semibold">What do you want to do?</h3>
-      <div class="flex items-center text-sm">
-        <ActionButton text="Clear Filters" type="secondary" />
+    <div class="fixed">
+      <div class="flex flex-row justify-between">
+        <h3 class="my-4 mx-5 text-base font-semibold">What do you want to do?</h3>
+        <div class="flex items-center text-sm">
+          <ActionButton text="Clear Filters" type="secondary" />
+        </div>
       </div>
-    </div>
-
-    <CollapsibleAccordion header="Job Types"> Placeholder for now. </CollapsibleAccordion>
-
-    <CollapsibleAccordion header="Organization">
-      <!--Slots specific -->
+      <CollapsibleAccordion header="Job Types"> Placeholder for now. </CollapsibleAccordion>
       <JobFiltersSidebarOrganizations />
-    </CollapsibleAccordion>
+    </div>
   </section>
 </template>
 
@@ -31,3 +28,5 @@ export default {
   },
 };
 </script>
+
+<style scoped></style>
