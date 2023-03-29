@@ -24,5 +24,5 @@ export default {
       return this.$route.name === 'JobResults';
     },
   },
-};
+}; 
 </script>
