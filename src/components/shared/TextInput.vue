@@ -7,20 +7,21 @@
   />
 </template>
 
-<script>
-export default {
-  name: 'TextInput',
-  props: {
-    modelValue: {
-      type: String,
-      required: true,
-    },
+<script setup lang="ts">
+import { defineProps } from 'vue';
+
+defineProps({
+  modelValue: {
+    type: String,
+    required: true,
   },
-  emits: ['update:modelValue'],
-  methods: {
-    handleInput($event) {
-      this.$emit('update:modelValue', $event.target.value); // <--- payload;
-    },
-  },
+});
+
+const emit = defineEmits(['update:modelValue']);
+const handleInput = ($event: Event) => {
+  {
+    const target = $event.target as HTMLInputElement;
+    emit('update:modelValue', target.value); // <--- payload;
+  }
 };
 </script>

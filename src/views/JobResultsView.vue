@@ -2,14 +2,7 @@
   <div class="flex w-full flex-row flex-nowrap"><JobFiltersSidebar /> <JobListings /></div>
 </template>
 
-<script>
+<script setup lang="ts">
 import JobFiltersSidebar from '../components/JobResults/JobFiltersSidebar/JobFiltersSidebar.vue';
 import JobListings from '../components/JobResults/JobListings.vue';
-export default {
-  name: 'JobResults',
-  components: {
-    JobFiltersSidebar,
-    JobListings,
-  },
-};
 </script>

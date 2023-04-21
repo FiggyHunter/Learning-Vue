@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useRoute } from 'vue-router';
 import { computed } from 'vue';
 import { useJobsStore } from '@/stores/jobs';

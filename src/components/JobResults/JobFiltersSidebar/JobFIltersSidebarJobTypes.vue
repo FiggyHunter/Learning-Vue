@@ -22,7 +22,7 @@
 
 <script setup>
 import { useJobsStore } from '@/stores/jobs';
-import { useUserStore } from '@/stores/user.js';
+import { useUserStore } from '@/stores/user.ts';
 
 import CollapsibleAccordion from '@/components/shared/CollapsibleAccordion.vue';
 import { ref, computed } from 'vue';

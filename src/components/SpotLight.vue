@@ -12,11 +12,18 @@
   </ul>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
 
-let spotlights = ref([]);
+export interface Spotlight {
+  id: number;
+  img: string;
+  title: string;
+  description: string[];
+}
+
+let spotlights = ref<Spotlight[]>([]);
 let mounted = async () => {
   const baseUrl = import.meta.env.VITE_APP_API_URL;
   const url = `${baseUrl}/spotlights`;

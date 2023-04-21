@@ -9,40 +9,30 @@
   </section>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref, computed, onMounted, onBeforeMount } from 'vue';
 import nextElementInList from '@/utils/nextElementInList';
-export default {
-  name: 'TheHeadline',
-  data() {
-    return {
-      action: 'Build',
-      interval: null,
-    };
-  },
-  computed: {
-    actionClasses() {
-      return {
-        [this.action.toLowerCase()]: true,
-      };
-    },
-  },
-  created() {
-    this.changeTitle();
-  },
+const action = ref('Build');
+const interval = ref<ReturnType<typeof setInterval>>();
 
-  beforeUnmount() {
-    clearInterval(this.interval); // performance, stop memory leak
-  },
+const actionClasses = computed(() => {
+  return action.value.toLowerCase();
+});
 
-  methods: {
-    changeTitle() {
-      this.interval = setInterval(() => {
-        this.$emit('itHappened');
-        const actions = ['Build', 'Create', 'Design', 'Code'];
-        this.action = nextElementInList(actions, this.action);
-      }, 3000);
-    },
-  },
+onMounted(() => changeTitle());
+
+onBeforeMount(() => {
+  clearInterval(interval.value); // performance, stop memory leak
+});
+
+const emit = defineEmits(['itHappened']);
+
+const changeTitle = () => {
+  interval.value = setInterval(() => {
+    emit('itHappened');
+    const actions = ['Build', 'Create', 'Design', 'Code'];
+    action.value = nextElementInList(actions, action.value);
+  }, 3000);
 };
 </script>
 

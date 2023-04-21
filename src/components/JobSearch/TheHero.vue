@@ -33,23 +33,16 @@
   </main>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref } from 'vue';
 import SpotLight from '@/components/SpotLight.vue';
 import ImageCarousel from '../ImageCarousel.vue';
 import JobSearchForm from '@/components/JobSearch/JobSearchForm.vue';
 import TheHeadline from '@/components/JobSearch/TheHeadline.vue';
-export default {
-  name: 'TheHero',
-  components: { TheHeadline, JobSearchForm, ImageCarousel, SpotLight },
-  data() {
-    return {
-      imageLink: '',
-    };
-  },
-  methods: {
-    updateImageLink() {
-      this.$refs.imageCarousel.changeLink();
-    },
-  },
+
+const imageCarousel = ref();
+
+const updateImageLink = () => {
+  imageCarousel.value.changeLink();
 };
 </script>

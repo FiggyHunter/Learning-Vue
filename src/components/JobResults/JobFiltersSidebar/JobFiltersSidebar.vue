@@ -24,11 +24,11 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import ActionButton from '../../shared/ActionButton.vue';
 import JobFilterSidebarCheckboxGroup from './JobFilterSidebarCheckboxGroup.vue';
 import { useJobsStore } from '@/stores/jobs';
-import { useUserStore } from '@/stores/user.js';
+import { useUserStore } from '@/stores/user.ts';
 import { computed } from 'vue';
 
 const jobsStore = useJobsStore();

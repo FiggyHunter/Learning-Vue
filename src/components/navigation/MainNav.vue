@@ -30,47 +30,34 @@
   </header>
 </template>
 
-<script>
-import { mapActions, mapState } from 'pinia';
+<script setup lang="ts">
 import { useUserStore } from '../../stores/user';
-
+import { ref, computed } from 'vue';
 import ActionButton from '../shared/ActionButton.vue';
 import ProfileImage from '@/components/navigation/ProfileImage.vue';
 import TheSubnav from '@/components/navigation/TheSubnav.vue';
 
-export default {
-  name: 'MainNav',
-  data() {
-    return {
-      company: 'Leo Careers',
-      menuItems: [
-        { text: 'Teams', url: '/teams' },
-        { text: 'Locations', url: '/locations' },
-        { text: 'Life at Leo Corp', url: '/life' },
-        { text: 'How we hire', url: '/hiring-process' },
-        { text: 'Students', url: '/students' },
-        { text: 'Jobs', url: '/jobs/results' },
-      ],
-    };
-  },
-  components: {
-    ActionButton,
-    ProfileImage,
-    TheSubnav,
-  },
-  computed: {
-    ...mapState(useUserStore, ['isLoggedIn']), // (id: user) + Store = userStore
-    headerHeightClass() {
-      return {
-        'h-16': !this.isLoggedIn,
-        'h-32': this.isLoggedIn,
-      };
-    },
-  },
-  methods: {
-    ...mapActions(useUserStore, ['loginUser']),
-  },
-};
+const company = ref('Leo Careers'),
+  menuItems = ref([
+    { text: 'Teams', url: '/teams' },
+    { text: 'Locations', url: '/locations' },
+    { text: 'Life at Leo Corp', url: '/life' },
+    { text: 'How we hire', url: '/hiring-process' },
+    { text: 'Students', url: '/students' },
+    { text: 'Jobs', url: '/jobs/results' },
+  ]);
+
+const userStore = useUserStore();
+const isLoggedIn = computed(() => userStore.isLoggedIn);
+
+const loginUser = () => userStore.loginUser();
+
+const headerHeightClass = computed(() => {
+  return {
+    'h-16': !isLoggedIn.value,
+    'h-32': isLoggedIn.value,
+  };
+});
 </script>
 
 <style scoped>
