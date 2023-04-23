@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import nextElementInList from '@/utils/nextElementInList.ts';
-import { ref } from 'vue';
+import { ref, defineExpose } from 'vue';
 
 const imageLink = ref(
   'https://images.unsplash.com/photo-1633887091273-a3bd71efddde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
@@ -19,6 +19,8 @@ const changeLink = () => {
   ];
   imageLink.value = nextElementInList(links, imageLink.value);
 };
+
+defineExpose({ changeLink });
 </script>
 
 <style scoped>
